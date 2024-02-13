@@ -6,10 +6,6 @@ const Register = () =>{
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const handleAgeChange = (e) => {
-        setAge(e.target.value);
-    };
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
     };
@@ -31,13 +27,13 @@ const Register = () =>{
     
         axios.post('http://localhost:8080/auth/api/signup', data)
             .then(response => {
+                
                 console.log('Login response:', response.data);
                
             })
             .catch(error => {
                 console.error('Login error:', error);
-                
-            });
+             });
     };
     
 

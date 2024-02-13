@@ -103,12 +103,12 @@ const boxes = [
   {
     title:"",
     img:<FaDiscord style={{ fontSize: '5em' }}/>,
-    text:"i have made a few discord bots useing DiscordJs (none of them are public)"
+    text:"i have made a few discord bots useing DiscordJS (none of them are public)"
   },
   {
     title:"",
     img:<SiMongodb style={{ fontSize: '5em' }}/>,
-    text:"I know how to operate an Atlas Mongodb ive learned by useing it for a few of my own personal Project (none of them are public) "
+    text:"I know how to operate an Atlas Mongodb ive learned by useing it for a few of my own personal Project and in this one as well "
   },
   {
     title:"",

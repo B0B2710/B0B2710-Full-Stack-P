@@ -2,17 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const connectDB = require('../db/dbConnect');
-
-// Establish database connection
-connectDB()
-    .then(() => {
-        console.log('Connected to the database successfully');
-    })
-    .catch((error) => {
-        console.error('Error connecting to the database:', error.message);
-    });
-
+const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "secret"
 
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
@@ -34,8 +26,12 @@ router.post('/', async (req, res) => {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
-        // Passwords match, user is authenticated
-        res.status(200).json({ message: 'Login successful' });
+        // Generate JWT token
+        const token = jwt.sign({ userId: user._id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
+
+        // Send the JWT token as response
+        res.status(200).json({ token });
+
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Internal server error' });

@@ -14,6 +14,10 @@ const Login = () => {
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
+   
+    const refreshPage = () => {
+        window.location.reload();
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +29,9 @@ const Login = () => {
         axios.post('http://localhost:8080/auth/api/login', data)
             .then(response => {
                 console.log('Login response:', response.data);
-               
+                const token = response.data.token;
+                sessionStorage.setItem('token', token);
+                refreshPage();
             })
             .catch(error => {
                 console.error('Login error:', error);

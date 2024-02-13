@@ -14,7 +14,7 @@ const LandingPage = () => {
         <div className='text-container'>
           <h2 className='textinpage'>
             Welcome to My&nbsp;
-            <Typewriter className='typewriter' options={{ autoStart: true, loop: true, delay: 40, strings: [" ReactJS Project", " NextJS Project", " API Project"] }} />
+            <Typewriter className='typewriter' options={{ autoStart: true, loop: true, delay: 40, strings: [" ReactJS Project", " ExpressJS Project", " API Project"] }} />
           </h2>
         </div>
       </div>
