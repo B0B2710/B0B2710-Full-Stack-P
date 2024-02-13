@@ -2,12 +2,12 @@ import { useRef, useState,useEffect,useCallback } from "react"
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { useClickAway } from "@uidotdev/usehooks"
-import { Icon } from "semantic-ui-react"
-import { BiColor, BiHomeSmile, BiUser } from 'react-icons/bi'
+import { SiAboutdotme } from "react-icons/si";
+import { BiHomeSmile, BiUser } from 'react-icons/bi'
 import '../styles/Sidebar.css';
 import { TiWeatherCloudy } from "react-icons/ti"; 
 import { AnimatePresence, motion } from 'framer-motion';
-import { Route,NavLink  } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 export const Sidebar = () => {
     const [open ,setOpen] = useState (false)
     const ref = useRef(null)
@@ -38,9 +38,6 @@ export const Sidebar = () => {
     }, [])
     const sidebarStyle = {
       top: `${0}px`,
-  };
-  const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
     return (
@@ -116,8 +113,9 @@ export const Sidebar = () => {
 
 const items = [
     {title: 'Home', Icon: BiHomeSmile,href:"/"},
-    {title: 'About', Icon: BiUser ,href:"/about"},
-    {title: 'Weather', Icon: TiWeatherCloudy,href:"/Weather"}
+    {title: 'About', Icon: SiAboutdotme ,href:"/about"},
+    {title: 'Weather', Icon: TiWeatherCloudy,href:"/Weather"},
+    {title: 'auth system', Icon: BiUser,href:"/auth"}
 
 
 ] 
@@ -155,10 +153,3 @@ const framerIcon = {
     delay: 0.5,
   },
 };
-
-const testanime = {
-  initial: { x: '-100%' },
-  animate: { x: 0 },
-  exit: { x: '-100%' },
-  transition: { duration: 0.3,delay:0.1 },
-}

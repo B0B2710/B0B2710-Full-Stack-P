@@ -34,7 +34,8 @@ const Navigation = () => {
         </div>
         <a
         className={`cta-btn ${isScrolled ? 'invisible' : '' }`}
-        href=""
+        target="_blank"
+        href="https://github.com/B0B2710/Full-Stack-P"
       >
         <FiGithub className="icon" />
         Source Code

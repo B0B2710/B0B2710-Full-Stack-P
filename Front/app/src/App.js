@@ -6,6 +6,7 @@ import  Navigation  from './components/Navigation';
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer';
 import AboutMe from './components/AboutMe';
+import Auth from './components/Auth';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/Weather" element={<WeatherPage />} />
         <Route path="/about" element={<AboutMe />} />
+        <Route path="/auth" element={<Auth/>} />
     </Routes>
     </motion.div>
    

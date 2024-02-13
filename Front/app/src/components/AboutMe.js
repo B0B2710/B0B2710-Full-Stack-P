@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { motion, px, useAnimation } from 'framer-motion';
+import { motion,useAnimation } from 'framer-motion';
 import { IoLogoJavascript } from "react-icons/io5"; //javascript icon
 import { FaPython } from "react-icons/fa";//python icon
 import { FaDiscord } from "react-icons/fa";//discord icon
-import { DiVisualstudio } from "react-icons/di";
-import { TbBrandNextjs } from "react-icons/tb";
+import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { FaReact } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
@@ -22,19 +21,22 @@ const AboutMe = () => {
  const [counter,setCounter] = useState(0)
 
  const counterplus = () => {
-  console.log(`lengh ${boxes.length} counter : ${counter}`)
-  if(counter === boxes.length - 1){
-    return;
+  if(counter === boxes.length-1){
+    setCounter(0);
+    
+  }else{
+    setCounter(counter+1)
   }
-  setCounter(counter+1)
+  
+  
 
 };
 const counterminus = () => {
   if(counter===0){
-    return;
+    setCounter(boxes.length-1);
+  }else{
+    setCounter(counter-1)
   }
-  setCounter(counter-1)
-  console.log(counter)
 };
   useEffect(() => {
     controls.start({
@@ -45,11 +47,6 @@ const counterminus = () => {
   }, [controls]); 
 
 
-  const textAnimation = {
-    opacity: 1,
-    from: { opacity: 0 },
-    transition: { duration: 0.5, delay: 0.5 },
-  };
 
   return (
     <>
@@ -57,12 +54,12 @@ const counterminus = () => {
       <motion.div animate={controls} className="about-me-card">
         <h1 className="about-me-title">Hey, I'm Rodion!</h1>
         <div>
-          <h2>Im a self learned full-stack web Developer and Discord Bots Developer</h2>
+          <h2>Im a self-taught full-stack web Developer and Discord Bots Developer</h2>
         </div>
       </motion.div>
     </motion.div>
     <motion.div className='tools-and-langs-box-container'>
-      <h3 className='tools-and-langs-box-title'>Here are the Programing langs i know and still learns</h3>
+      <h3 className='tools-and-langs-box-title'>Here is my programming knowledge and some of the tools I use</h3>
 
     <motion.div className='Buttons'>
       <button onClick={counterminus} className='Button'>before</button>
@@ -70,20 +67,17 @@ const counterminus = () => {
     </motion.div>
       <motion.div className='langs-box-container'>
       <motion.div className='langs-box'>
-        <h2>{boxes[counter].title}</h2>
-        <div className='img'>{boxes[counter].img}</div>
         
+      <div className='img'>
+        <h2>{boxes[counter].title}</h2>
+        {boxes[counter].img}
+     </div>
         <h3>{boxes[counter].text}</h3>
         
         </motion.div>
       </motion.div>
-      <button></button>
-      <h2>And here some of the tools i use to do my Coding :D</h2>
-      <motion.div className='tools-box-container'> 
-      
-      </motion.div>
     </motion.div>
-
+      <div className='hidden-text'>Im a fast learner so i can learn anything and complete any tasks with enough time given ;)*</div>
     </>
     
   );
@@ -92,14 +86,41 @@ const counterminus = () => {
 
 const boxes = [
   {
-    title:"js",
-    img:<IoLogoJavascript />,
-    text:"im useing js to build this app rn "
+    title:"",
+    img:<><IoLogoJavascript style={{ fontSize: '5em' }}/><MdCss style={{ fontSize: '5em' }}/><FaHtml5 style={{ fontSize: '5em' }}/></>,
+    text:"I started learning the basics of web development when i was in the start of 10th grade and since then im still learning :)"
   },
   {
-    title:"pytohn",
-    img:<FaPython/>,
-    text:"i have no idea how to use python :( "
-  }
+    title:"",
+    img:<><SiExpress style={{ fontSize: '5em' }}/> <FaNodeJs style={{ fontSize: '5em' }}/></>,
+    text:"I have started learning nodejs and ExpressJS not too long ago and this is my first website backend Project with a full working login system"
+  },
+  {
+    title:"",
+    img:<FaPython style={{ fontSize: '5em' }}/>,
+    text:"i have finished a coruse with all the basics of python etc and I have made my own Python,shell bug bounty Project (you can see it on my Github page)"
+  },
+  {
+    title:"",
+    img:<FaDiscord style={{ fontSize: '5em' }}/>,
+    text:"i have made a few discord bots useing DiscordJs (none of them are public)"
+  },
+  {
+    title:"",
+    img:<SiMongodb style={{ fontSize: '5em' }}/>,
+    text:"I know how to operate an Atlas Mongodb ive learned by useing it for a few of my own personal Project (none of them are public) "
+  },
+  {
+    title:"",
+    img:<FaGithub style={{ fontSize: '5em' }}/>,
+    text:"I know to use Github and how to reslove conflics,I have experience in writing code with a team of friends "
+  },
+  {
+    title:"",
+    img:<FaReact style={{ fontSize: '5em' }}/>,
+    text:"The whole Front-end of this Project was built with ReactJS"
+  },
+  
+
   ]
 export default AboutMe;

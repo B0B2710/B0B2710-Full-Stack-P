@@ -26,6 +26,11 @@
   }
   .img{
     size: 100px;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    direction: rtl;
+    padding: 5px;
   }
   .tools-box-container{
     height: 50vh;
@@ -78,6 +83,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .Button {
@@ -99,6 +105,11 @@
   transition: box-shadow .15s,transform .15s;
   will-change: box-shadow,transform;
   font-size: 18px;
+}
+.hidden-text{
+  color: white;
+  position: absolute;
+  bottom: 5%;
 }
 
 .Button:focus {

@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 const cookieSession = require("cookie-session");
-
+const loginRouter = require('./routes/login'); 
+const signupRouter = require('./routes/signup');
 const app = express();
 
 var corsOptions = {
@@ -26,8 +28,12 @@ app.use(
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to the application." });
 });
+
+// Mount the login and signup routers
+app.use("/auth/api/login", loginRouter);
+app.use("/auth/api/signup", signupRouter);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

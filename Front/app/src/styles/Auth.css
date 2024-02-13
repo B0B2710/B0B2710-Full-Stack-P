@@ -1,0 +1,16 @@
+.auth-container{
+    display: flex;
+    flex-direction: column; /* Display children elements vertically */
+    align-items: center; /* Align children elements horizontally in the center */
+    justify-content: center; 
+}
+.login-or-register-title{
+    display: block; /* or display: block; */
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-size: medium;
+    color:white;
+    padding: 10px;
+}
